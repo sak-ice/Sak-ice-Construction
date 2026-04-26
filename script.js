@@ -1,6 +1,3 @@
-/* ============================================================
-   SAK-ICE CONSTRUCTION — MAIN JAVASCRIPT
-   ============================================================ */
 
 document.addEventListener("DOMContentLoaded", function () {
   /* --------------------------------------------------
@@ -127,57 +124,6 @@ document.addEventListener("DOMContentLoaded", function () {
           }
         });
       });
-    });
-  }
-
-  /* --------------------------------------------------
-       CONTACT FORM — Send button feedback
-    -------------------------------------------------- */
-  const sendBtn = document.getElementById("send-btn");
-  const formSuccess = document.getElementById("form-success");
-
-  if (sendBtn) {
-    sendBtn.addEventListener("click", function () {
-      // Basic validation
-      const inputs = document.querySelectorAll(
-        ".form-fields input, .form-fields textarea, .form-fields select",
-      );
-      let allFilled = true;
-
-      inputs.forEach((input) => {
-        if (!input.value.trim()) {
-          input.style.borderColor = "#e53e3e";
-          allFilled = false;
-        } else {
-          input.style.borderColor = "";
-        }
-      });
-
-      if (!allFilled) return;
-
-      // Simulate send
-      sendBtn.textContent = "Sending...";
-      sendBtn.disabled = true;
-      sendBtn.style.opacity = "0.7";
-
-      setTimeout(() => {
-        sendBtn.textContent = "Message Sent!";
-        sendBtn.style.background = "#10b981";
-        if (formSuccess) formSuccess.classList.add("show");
-
-        // Reset after 4s
-        setTimeout(() => {
-          sendBtn.innerHTML =
-            'Send Message <i class="fa-solid fa-paper-plane"></i>';
-          sendBtn.disabled = false;
-          sendBtn.style.opacity = "";
-          sendBtn.style.background = "";
-          if (formSuccess) formSuccess.classList.remove("show");
-          inputs.forEach((input) => {
-            input.value = "";
-          });
-        }, 4000);
-      }, 1500);
     });
   }
 
